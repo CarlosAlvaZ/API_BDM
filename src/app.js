@@ -1,15 +1,15 @@
 import express from "express";
 import colors from "colors";
 import mongoose, { mongo } from "mongoose";
-
 import elementRouter from "./routes/routes.js"
+
 
 const port = process.env.PORT || 3000;
 
 const app = express();
 
 mongoose.connect(
-    "mongodb://localhost:27017/ProyectoCatedraSID",
+    'mongodb+srv://carlosAlvarenga:readyPlayerOne@cluster0.hrrz7sv.mongodb.net/ProyectoSID?retryWrites=true&w=majority',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
