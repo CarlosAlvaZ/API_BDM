@@ -39,8 +39,14 @@ const elementController = {
             data: response
         })
     },
-    update: (req, res) => {
-        return res.send(`Vas a actualizar el elemento con el ID ${req.params.id}`)
+    update: async (req, res) => {
+        const { id } = req.params
+        const elements = req.body.elementos
+        const response = await elementServices.update(id, elements)
+        return res.status(200).json({
+            status: 200,
+            data: response
+        })
     }
 }
 

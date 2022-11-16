@@ -33,5 +33,16 @@ export const elementServices = {
         } catch (error) {
             return error
         }
+    },
+    update: (id, elements) => {
+        try {
+            return Element.findByIdAndUpdate(
+                id,
+                { elementos: elements },
+                { new: true }
+            )
+        } catch (error) {
+            return error
+        }
     }
 }
