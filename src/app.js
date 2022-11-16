@@ -1,6 +1,6 @@
 import express from "express";
 import colors from "colors";
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 import cors  from 'cors'
 import elementRouter from "./routes/routes.js"
 import * as dotenv from 'dotenv'
