@@ -1,9 +1,9 @@
-import Element from "../models/model.js"
+import Prestamo from "../models/ModeloPrestamo.js"
 
-export const elementServices = {
+export const ServiciosPrestamo = {
     getAll: (options) => {
         try {
-            return Element.find({...options})
+            return Prestamo.find({...options})
         }
         catch(error) {
             return error
@@ -11,21 +11,21 @@ export const elementServices = {
     },
     getOne: (id) => {
         try {
-            return Element.find({ _id: id })
+            return Prestamo.find({ _id: id })
         } catch (error) {
             return error
         }
     },
     store: (newElement) => {
         try {
-            return Element.create(newElement)
+            return Prestamo.create(newElement)
         } catch (error){
             return error
         }
     },
     delete: (id) => {
         try {
-            return Element.findByIdAndUpdate(
+            return Prestamo.findByIdAndUpdate(
                 id,
                 { isDeleted: true },
                 { new: true }
@@ -34,13 +34,9 @@ export const elementServices = {
             return error
         }
     },
-    update: (id, elements) => {
+    update: (id, devolucion) => {
         try {
-            return Element.findByIdAndUpdate(
-                id,
-                { elementos: elements },
-                { new: true }
-            )
+            return Prestamo.findByIdAndUpdate(id, { fecha_devolucion : devolucion, devuelto : true}, { new : true })
         } catch (error) {
             return error
         }

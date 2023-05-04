@@ -1,16 +1,19 @@
 import { Router } from "express";
-import elementController from "../controllers/controller.js";
+import ControladorLector from "../controllers/ControladorLector.js";
+import ControladorPrestamo from "../controllers/ControladorPrestamo.js";
 
 const router = Router();
 
-router.get("/", elementController.getAll);
+// Rutas Lectores
+router.get("/lectores", ControladorLector.getAll);
+router.get("/lectores/:id", ControladorLector.getOne)
+router.post("/lectores", ControladorLector.store)
+router.delete("/lectores/:id", ControladorLector.delete)
+router.put("/lectores/:id", ControladorLector.update)
 
-router.get("/:id", elementController.getOne)
-
-router.post("/", elementController.store)
-
-router.delete("/:id", elementController.delete)
-
-router.put("/:id", elementController.update)
+// Rutas Presatmo
+// router.get("/prestamos", ControladorPrestamo.getAll)
+// router.get("/prestamos/:id", ControladorPrestamo.getOne)
+// router.post("/prestamos", ControladorPrestamo.store)
 
 export default router;
