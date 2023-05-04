@@ -1,10 +1,6 @@
 import mongoose, { Schema, model } from "mongoose";
 
 const PrestamoSchema = new Schema({
-    _id : {
-        type : mongoose.Types.ObjectId,
-        required : false
-    },
     isbn : {
         type: String,
         required: true,
@@ -18,7 +14,7 @@ const PrestamoSchema = new Schema({
         required : true
     },
     fecha_limite_devolucion: {
-        type: Array,
+        type: String,
         required : true
     },
     fecha_devolucion: {
@@ -29,7 +25,7 @@ const PrestamoSchema = new Schema({
         type : Boolean,
         default : false
     }
-}, { collection : "Prestamos" })
+}, { collection : "Prestamo" })
 
 const Prestamo = model('prestamo', PrestamoSchema)
 

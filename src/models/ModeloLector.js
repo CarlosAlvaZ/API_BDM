@@ -1,10 +1,10 @@
 import mongoose, { Schema, model } from "mongoose";
 
 const LectorSchema = new Schema({
-    _id : {
-        type : mongoose.Types.ObjectId,
-        required : false
-    },
+    // _id : {
+    //     type : mongoose.Types.ObjectId,
+    //     required : false
+    // },
     id_lector : {
         type: String,
         required: true,

@@ -35,4 +35,4 @@ app.listen(port, () => { console.log(`Server running in port ${port}`) })
 
 const hoy = Date.now()
 const fecha = new Date(hoy)
-console.log(fecha.toISOString())
+console.log(new Date(new Date().setDate(new Date(Date.now()).getDate() + 7)).toISOString())

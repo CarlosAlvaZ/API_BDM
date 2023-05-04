@@ -12,8 +12,8 @@ router.delete("/lectores/:id", ControladorLector.delete)
 router.put("/lectores/:id", ControladorLector.update)
 
 // Rutas Presatmo
-// router.get("/prestamos", ControladorPrestamo.getAll)
+router.get("/prestamos", ControladorPrestamo.getAll)
 // router.get("/prestamos/:id", ControladorPrestamo.getOne)
-// router.post("/prestamos", ControladorPrestamo.store)
+router.post("/prestamos", ControladorPrestamo.store)
 
 export default router;

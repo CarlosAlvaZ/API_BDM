@@ -1,4 +1,5 @@
 import { ServiciosPrestamo } from '../services/ServiciosPrestamo.js'
+import { ServiciosLector } from '../services/ServiciosLector.js'
 
 const ControladorPrestamo = {
     getAll: async (req, res) => {
@@ -21,13 +22,16 @@ const ControladorPrestamo = {
         const newElement = {
             isbn: req.body.isbn,
             id_lector: req.body.id_lector,
-            fecha_prestamo: new Date(Date.now()).toISOString,
-            fecha_limite_devolucion: new Date(Date.now()).setDate(Date.now() + 7),
+            fecha_prestamo: new Date(Date.now()).toISOString(),
+            fecha_limite_devolucion: new Date(new Date().setDate(new Date(Date.now()).getDate() + 7)).toISOString(),
         }
 
         const elementStored = await ServiciosPrestamo.store(newElement)
+        const idPrestamo = elementStored._id.toString()
+        const updatedLector = await ServiciosLector.update(req.body.id_lector, idPrestamo)
         return res.status(200).json({
-            data: elementStored
+            data: elementStored,
+            lector : updatedLector
         })
     },
     delete: async (req, res) => {
