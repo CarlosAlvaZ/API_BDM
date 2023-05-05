@@ -25,7 +25,7 @@ const PrestamoSchema = new Schema({
         type : Boolean,
         default : false
     }
-}, { collection : "Prestamo" })
+}, { collection : "Prestamos" })
 
 const Prestamo = model('prestamo', PrestamoSchema)
 
