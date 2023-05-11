@@ -25,26 +25,9 @@ export const ServiciosCategoria = {
     },
     delete: (id) => {
         try {
-            return Categoria.findByIdAndUpdate(
-                id,
-                { isDeleted: true },
-                { new: true }
-            )
+            return Categoria.findByIdAndDelete(id)
         } catch (error) {
             return error
         }
-    },
-    // update: (id, prestamo) => {
-    //     try {
-    //         const filterId = mongoose.Types.ObjectId(id)
-    //         console.log(filterId)
-    //         return Element.findOneAndUpdate(
-    //             { _id : filterId }, 
-    //             { $addToSet : { prestamos : prestamo } },
-    //             { new : true }
-    //         )
-    //     } catch (error) {
-    //         return error
-    //     }
-    // }
+    }
 }

@@ -1,6 +1,6 @@
 import Libro  from '../models/ModeloLibro.js'
 
-export const ServicioLibro ={
+export const ServiciosLibro ={
     getAll :(options)=>{
         try{
             return Libro.find({...options})
@@ -24,14 +24,9 @@ export const ServicioLibro ={
     },
     delete:(id)=>{
         try{
-            return Libro.findByIdAndUpdate(
-                id,
-                {isDeleted: true},
-                {new:true}
-            )
+            return Libro.findByIdAndDelete(id)
         }catch(error){
             return error
         }
-    },
-    /**Pendiente Update Preguntar a benja  */
+    }
 }

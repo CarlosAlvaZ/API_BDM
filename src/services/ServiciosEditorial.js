@@ -25,11 +25,7 @@ export const ServiciosEditorial = {
     },
     delete: (id) => {
         try {
-            return Editorial.findByIdAndUpdate(
-                id,
-                { isDeleted: true },
-                { new: true }
-            )
+            return Editorial.findByIdAndDelete(id)
         } catch (error) {
             return error
         }

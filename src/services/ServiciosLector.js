@@ -25,11 +25,7 @@ export const ServiciosLector = {
     },
     delete: (id) => {
         try {
-            return Lector.findByIdAndUpdate(
-                id,
-                { isDeleted: true },
-                { new: true }
-            )
+            return Lector.findByIdAndDelete(id)
         } catch (error) {
             return error
         }

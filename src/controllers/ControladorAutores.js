@@ -1,9 +1,9 @@
-import { ServiciosAutores } from '../services/ServiciosAutores.js'
+import { ServiciosAutor } from '../services/ServiciosAutores.js'
 
 const ControladorAuthor = {
     
     getAll: async (req, res) => {
-        const allElements = await ServiciosAutores.getAll()
+        const allElements = await ServiciosAutor.getAll()
         return res.status(200).json({
             status : 200,
             total : allElements.length,
@@ -12,7 +12,7 @@ const ControladorAuthor = {
     },
     getOne: async (req, res) => {
         const { id } = req.params
-        const element = await ServiciosAutores.getOne(id)
+        const element = await ServiciosAutor.getOne(id)
         return res.status(200).json({
             status: 200,
             data: element,
@@ -24,14 +24,14 @@ const ControladorAuthor = {
             apellido: req.body.apellido,
         }
 
-        const elementStored = await ServiciosAutores.store(newElement)
+        const elementStored = await ServiciosAutor.store(newElement)
         return res.status(200).json({
             data: elementStored
         })
     },
     delete: async (req, res) => {
         const { id } = req.params
-        const response = await ServiciosAutores.delete(id)
+        const response = await ServiciosAutor.delete(id)
         return res.status(200).json({
             status: 200,
             data: response
@@ -39,8 +39,8 @@ const ControladorAuthor = {
     },
     update: async (req, res) => {
         const { id } = req.params
-        const Libros = req.body.libros
-        const response = await ServiciosAutores.update(id, Libros)
+        const libro = req.body.libros
+        const response = await ServiciosAutor.update(id, libro)
         return res.status(200).json({
             status: 200,
             data: response

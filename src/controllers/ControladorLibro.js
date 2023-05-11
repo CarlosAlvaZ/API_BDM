@@ -1,8 +1,9 @@
-import { ServicioLibro } from "../services/ServiciosLibro.js"
+import { ServiciosLibro } from "../services/ServiciosLibro.js"
+import { ServiciosAutor } from "../services/ServiciosAutores.js"
 
 const ControladorLibro = {
     getAll: async (req, res) => {
-        const allElements = await ServicioLibro.getAll()
+        const allElements = await ServiciosLibro.getAll()
         return res.status(200).json({
             status : 200,
             total : allElements.length,
@@ -28,8 +29,11 @@ const ControladorLibro = {
         }
 
         const elementStored = await ServiciosLibro.store(newElement)
+        const idLibro = elementStored._id.toString()
+        const updatedAutor = await ServiciosAutor.update(req.body.autor, idLibro)
         return res.status(200).json({
-            data: elementStored
+            data: elementStored,
+            autor : updatedAutor
         })
     },
     delete: async (req, res) => {

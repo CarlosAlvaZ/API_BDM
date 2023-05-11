@@ -1,6 +1,6 @@
 import Autores from "../models/ModeloAutores.js"
 
-export const ServiciosPrestamo = {
+export const ServiciosAutor = {
     getAll: (options) => {
         try {
             return Autores.find({...options})
@@ -25,20 +25,16 @@ export const ServiciosPrestamo = {
     },
     delete: (id) => {
         try {
-            return Autores.findByIdAndUpdate(
-                id,
-                { isDeleted: true },
-                { new: true }
-            )
+            return Autores.findByIdAndDelete(id)
         } catch (error) {
             return error
         }
     },
- /*   update: (id, devolucion) => {
+    update: (id, libro) => {
         try {
-            return Authores.findByIdAndUpdate(id, { fecha_devolucion : devolucion, devuelto : true}, { new : true })
+            return Autores.findByIdAndUpdate(id, { $addToSet : { libros : libro } }, { new : true })
         } catch (error) {
             return error
         }
-    }*/
+    }
 }
